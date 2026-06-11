@@ -1,4 +1,4 @@
-# Unimodal CNN — CreativeIT IS17 Feature Set
+#CNN for Continuous Emotion Recognition — CreativeIT IS17 Feature Set
 
 A convolutional neural network for continuous **emotion recognition** from speech and/or motion features using the [CreativeIT dataset](https://sail.usc.edu/CreativeIT/ImprovDatabase.htm) with the [IS17 feature set](http://www.compare.openaudio.eu/).
 
