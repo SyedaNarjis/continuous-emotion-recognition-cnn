@@ -68,7 +68,7 @@ python main_unicnn.py --no-audio --motion-path /path/to/motion_features/ ...
 ```
 
 ### All options
-
+---
 | Flag | Default | Description |
 |------|---------|-------------|
 | `--audio-path` | `features/audio/` | Audio feature CSV directory |
@@ -81,8 +81,8 @@ python main_unicnn.py --no-audio --motion-path /path/to/motion_features/ ...
 | `--hop` | `20` | Stride between windows (frames) |
 | `--audio / --no-audio` | on | Use audio modality |
 | `--motion / --no-motion` | on | Use motion modality |
-
----
+| `--type / --no-type` | on | Include type feature column |
+| `--act / --no-act` | off | Cross-subject activation column — disabled in all original experiments |
 
 ## Data
 
