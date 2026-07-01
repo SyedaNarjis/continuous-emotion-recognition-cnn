@@ -10,7 +10,7 @@ Adapted for Python 3 and PEP-8 compliance.
 """
 
 import numpy as np
-
+from scipy.stats import spearmanr
 
 def calc_scores(x: np.ndarray, y: np.ndarray) -> np.ndarray:
     """Compute CCC, PCC, and RMSE between two sequences.
@@ -53,3 +53,31 @@ def calc_scores(x: np.ndarray, y: np.ndarray) -> np.ndarray:
     rmse = np.sqrt(np.nanmean((x - y) ** 2))
 
     return np.array([ccc, pcc, rmse])
+
+def calc_spearman(x: np.ndarray, y: np.ndarray) -> float:
+    """Compute Spearman's Rank Correlation Coefficient between two sequences.
+
+    Unlike PCC, Spearman's correlation is non-parametric and measures the
+    monotonic relationship between two variables — it is robust to outliers
+    and does not assume a linear relationship.
+
+    Parameters
+    ----------
+    x:
+        Ground-truth values (1-D NumPy array).
+    y:
+        Predicted values (1-D NumPy array, same length as *x*).
+
+    Returns
+    -------
+    float
+        Spearman correlation coefficient in the range [-1, 1].
+
+    Notes
+    -----
+    This function is available for future use but is not currently called
+    by the main training pipeline. To include it in evaluation, call it
+    alongside ``calc_scores`` and log the result separately.
+    """
+    rho, _ = spearmanr(x, y)
+    return float(rho)
